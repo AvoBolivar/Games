@@ -210,7 +210,6 @@ def showing_results():
     def callback(url):
         webbrowser.open_new(url)
 
-    print("Bruh, this page gotta be decorated")
     font2 = ("Times", "16", "bold italic")
     colors = ["dark orange", "gold", "dodgerblue2", "green2", "purple2", "red"]
     max = 0
@@ -241,7 +240,6 @@ def showing_results():
     # this would give them a scholarship link depending on what they are interested in
     if max_place == 0:
         def yes():
-            print("clicked yes")
             greet2 = Label(results, text="That is a solid choice, it is highly recommended that you try to stay in\n"
                                          "the sport all 4 years to show dedication. If you are looking to play sports\n"
                                          "in college you can visit the website below and find out the steps you can\n"
@@ -256,7 +254,6 @@ def showing_results():
                 "https://www.unigo.com/scholarships/athletic"))
 
         def no():
-            print("clicked no")
             greet2 = Label(results, text="If your are in a sports team outside of school that is great as well.\n"
                                          "Although if you are not joining your favorite sports team due to financial\n"
                                          "issues it is highly recommended you talk to your councilor to hopefully\n"
@@ -427,8 +424,8 @@ def showing_results():
         advise_one.grid(row=0, column=0, sticky=W)
 
         # this checks what their interests are and then gives them clubs depending on what they like
+        # sport based clubs
         if max_place == 0:
-            print("sport based clubs")
             # 30 - 38
             clubb = 30
             while clubb <= 38:
@@ -479,7 +476,7 @@ def showing_results():
                     r = 0
                     c += 1
                 clubb += 1
-            print("leader based clubs")
+            # leader based clubs
             # 60 - 68
         if max_place == 4:
             clubb = 12
@@ -493,7 +490,7 @@ def showing_results():
                     r = 0
                     c += 1
                 clubb += 1
-            print("smart clubs")
+            # smart clubs
             # 12 - 30
         if max_place == 5:
             clubb = 0
@@ -507,7 +504,7 @@ def showing_results():
                     r = 0
                     c += 1
                 clubb += 1
-            print("creative clubs")
+            # creative clubs
             # clubs 0 - 12
 
     if smart < 6.25:
@@ -609,7 +606,7 @@ def showing_results():
     # this shows name, sat, acceptance rate, diversity link, home page link, and tour link
 
     if max_place == 0:
-        print(smart)
+        # smart
         if smart < 6.25:
             school_name = Label(school_grid, text=kentucky.name, font=font3)
             school_name.grid(row=0, column=0)
@@ -855,7 +852,7 @@ def community_service_page():
     def callback(link):
         webbrowser.open_new(link)
 
-    print("final page")
+    # final page
     short_page = Frame(root)
     short_page.grid(row=0, column=0)
 
@@ -889,7 +886,7 @@ def community_service_page():
 
 def interests_service():
     def service():
-        print("Print service part, finish category scores before doing this part")
+        # service part, finish category scores before doing this part")
 
     def scale_label(type, text, row):
         v_space(last_screen_hopefully, row, 0)
@@ -906,7 +903,6 @@ def interests_service():
         category_scores.append(ld.get())
         category_scores.append(rb.get())
         category_scores.append(cr.get())
-        print(category_scores)
         last_screen_hopefully.destroy()
         community_service_page()
 
@@ -979,13 +975,11 @@ def check_club():
     cl = club.get()
     if cl in clubs_in_school:
         cs.append(cl)
-        print(cs)
         added = Label(c, text=cs)
         added.grid(row=10, column=0)
     else:
         while w1 != len(clubs_in_school):
             if cl == clubs_in_school[w1]:
-                print(clubs_in_school[w1])
                 w1 += 1
             else:
                 club_error()
@@ -1036,7 +1030,6 @@ def clubs():
 def clubs_amount():
     def in_club():
         r = int(amount.get())
-        print(r)
 
         if r == 0:
             clubs_screen.destroy()
@@ -1046,7 +1039,7 @@ def clubs_amount():
 
     # this asks for the amount fo clubs their in.
 
-    print("In new window")
+    # In new window
     global clubs_screen
 
     clubs_screen = Frame(root)
@@ -1075,7 +1068,7 @@ def next():
     global mathType, scienceType, ssType, litType
     i = 0
     clicked = 0
-    print("Class Scores")
+    # Class Scores
 
     # list of all check boxes
     mathSection = [mVar.get(), mVar1.get(), mVar2.get(), mVar3.get()]
@@ -1149,14 +1142,13 @@ def next():
         error()
     ctype = [mathType, scienceType, ssType, litType]
     smart = mathType + scienceType + ssType + litType / 4
-    print(smart)
     if 0 in ctype:
         error()
     else:
         ClassWindow.destroy()
         InstructionsWindow.destroy()
         bottomWindow.destroy()
-        print("Making new window...")
+        # Making new window...
         clubs_amount()
 
 
